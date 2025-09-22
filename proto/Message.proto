@@ -1,0 +1,9 @@
+syntax="proto3";
+
+message aMessage{
+    int32 First = 1;
+}
+
+service Processing{
+    rpc Compute(aMessage) returns (aMessage) {};
+}
