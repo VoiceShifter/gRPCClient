@@ -1,7 +1,7 @@
 syntax="proto3";
 
 message aMessage{
-    int32 First = 1;
+    repeated float First = 1;
 }
 
 service Processing{

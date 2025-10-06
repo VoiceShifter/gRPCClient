@@ -12,17 +12,32 @@ int main()
 {
       auto Channel = grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials());
       Client aClient(Channel);
-      std::array<signed int, 1000> Results;
-      const auto CurrentTime1{chrono::system_clock::now()};
-      for (ushort Index{0}; Index < 1000; ++Index)
+      std::array<float, 10000> Results;
+      for (size_t Index{0}; Index < Results.size(); ++Index)
       {
-            Results[Index] = aClient.GetReply(Index);
+            Results[Index] = Index;
       }
-      const auto CurrentTime2{chrono::system_clock::now()};
-      std::cout << std::chrono::duration<double>(CurrentTime2 - CurrentTime1).count() << " - time spend to calculate\n";
-      for (const auto it : Results)
+      for (short Idx{0}; Idx < 10; ++Idx)
       {
-            std:: cout << it << '\n';
+            for (size_t Index{0}; Index < Results.size(); ++Index)
+            {
+                  Results[Index] = Index;
+            }
+            const auto CurrentTime1{chrono::system_clock::now()};
+            if (aClient.GetReply(Results) != 0)
+            {
+                  std::cout << "wtf\n";
+            }
+            const auto CurrentTime2{chrono::system_clock::now()};
+            //<< "Elements recieved - " << Results.size() << "\n" <<
+            std::cout << std::chrono::duration<double>((CurrentTime2 - CurrentTime1)).count()
+                      << " - time spend \n" ;
+            sleep(1);
       }
+      for (size_t Idx{Results.size() - 10}; Idx < Results.size(); ++Idx)
+      {
+            std::cout << Results[Idx] << "\n";
+      }
+      std::cout.flush();
       return 0;
 }
