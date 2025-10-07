@@ -1,5 +1,6 @@
 #ifndef CLIENT_HPP
 #define CLIENT_HPP
+#define _WIN32_WINNT 0x601
 # include <grpcpp/channel.h>
 # include <grpcpp/grpcpp.h>
 # include <grpcpp/create_channel.h>

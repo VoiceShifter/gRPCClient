@@ -32,7 +32,7 @@ int main()
             //<< "Elements recieved - " << Results.size() << "\n" <<
             std::cout << std::chrono::duration<double>((CurrentTime2 - CurrentTime1)).count()
                       << " - time spend \n" ;
-            sleep(1);
+            Sleep(1000);
       }
       for (size_t Idx{Results.size() - 10}; Idx < Results.size(); ++Idx)
       {

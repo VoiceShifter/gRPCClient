@@ -3,7 +3,7 @@
 // source: Message.proto
 #ifndef GRPC_Message_2eproto__INCLUDED
 #define GRPC_Message_2eproto__INCLUDED
-
+#define _WIN32_WINNT 0x601
 #include "Message.pb.h"
 
 #include <functional>

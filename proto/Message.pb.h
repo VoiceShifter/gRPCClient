@@ -3,7 +3,7 @@
 
 #ifndef GOOGLE_PROTOBUF_INCLUDED_Message_2eproto
 #define GOOGLE_PROTOBUF_INCLUDED_Message_2eproto
-
+#define _WIN32_WINNT 0x601
 #include <limits>
 #include <string>
 

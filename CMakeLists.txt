@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-
+list(APPEND CMAKE_PREFIX_PATH "F:/Libs/grpc_old810")
 project(gRPCClient LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -15,8 +15,4 @@ install(TARGETS gRPCClient
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-set(CPM_SOURCE_CACHE /home/username/.cache/CPM) 
-include(CPM.cmake)
-
-
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE gRPC::grpc++ gRPC::grpc gRPC::grpcpp_channelz protobuf::libprotobuf)
